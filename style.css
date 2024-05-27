@@ -8,3 +8,9 @@ body {
     color: #caf0f8;
     font-family: 'Roboto Condensed';
 }
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
