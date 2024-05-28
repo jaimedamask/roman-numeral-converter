@@ -11,3 +11,4 @@ const convertNum = () => {
     }
 };
 
+convertBtn.addEventListener('click', convertNum);
