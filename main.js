@@ -1,8 +1,8 @@
 const number = document.getElementById('number');
 const convertBtn = document.getElementById('convert-btn');
 const output = document.getElementById('output');
-let input = number.value;
-let errorMsg = '';
+let input = '';
+
 const romanNumerals = {
     M: 1000,
     CM: 900,
@@ -20,11 +20,15 @@ const romanNumerals = {
 };
 
 const isValidInput = () => {
+    let errorMsg = '';
+
     if (input < 1) {
         errorMsg = 'Please enter a number greater than or equal to 1';
     } else if (input > 3999) {
         errorMsg = 'Please enter a number less than or equal to 3999';
     } else return true;
+
+    output.textContent = errorMsg;
 };
 
 const convertNum = () => {
@@ -41,11 +45,13 @@ const convertNum = () => {
 };
 
 const updateDisplay = () => {
+    input = number.value;
+    
     if (isValidInput()) {
         output.textContent = convertNum();
-    } else {
-        output.textContent = errorMsg;
     }
 
     number.value = '';
 }
+
+convertBtn.addEventListener('click', updateDisplay);
