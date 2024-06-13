@@ -22,14 +22,18 @@ const romanNumerals = {
 const isValidInput = () => {
     let errorMsg = '';
 
-    if (input) {
-        if (input < 1) {
-            errorMsg = 'Please enter a number greater than or equal to 1';
-        } else if (input > 3999) {
-            errorMsg = 'Please enter a number less than or equal to 3999';
-        } else return true;
+    if (!input.includes('.')) {
+        if (input) {
+            if (input < 1) {
+                errorMsg = 'Please enter a number greater than or equal to 1';
+            } else if (input > 3999) {
+                errorMsg = 'Please enter a number less than or equal to 3999';
+            } else return true;
+        } else {
+            errorMsg = 'Please enter a valid number';
+        }  
     } else {
-        errorMsg = 'Please enter a valid number';
+        errorMsg = 'A decimal cannot be converted to a Roman numeral. Please enter an integer.';
     }
 
     output.textContent = errorMsg;
